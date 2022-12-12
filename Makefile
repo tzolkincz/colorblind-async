@@ -4,4 +4,4 @@ install:
 
 .PHONY: test
 test:
-	python -m pytest tests
+	DEBUG_COLORBLIND_ASYNC=1 python -m pytest tests
