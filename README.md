@@ -9,7 +9,9 @@
 
 main.py
 ```python
-import colorblind_async # just include colorblind_async
+from src.colorblind_async import ColorblindAsync
+
+ColorblindAsync.init()
 
 import file # now when you include other modules, the colorblind_async will do it's job
 
@@ -40,7 +42,7 @@ await coro() # I can even call `await` outside any function
 ```python
 from colorblind_async import ColorblindAsync
 
-ColorblindAsync.set_loop(my_loop)
+ColorblindAsync.init(loop=my_loop)
 
 ```
 
