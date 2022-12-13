@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "colorblind-async"
+version = "0.0.1b"
+authors = [
+  { name="tzolkincz", email="vaclav@happy-robots.cz" },
+]
+description = "Allows call await from synchronous context"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dynamic = ["dependencies"]
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[project.urls]
+"Homepage" = "https://github.com/tzolkincz/colorblind-async"
+"Bug Tracker" = "https://github.com/tzolkincz/colorblind-async/issues"
