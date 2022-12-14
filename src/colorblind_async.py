@@ -58,9 +58,7 @@ class _ColorblindAsync:
         def run_loop():
             self.loop = asyncio.new_event_loop()
             nest_asyncio.apply(self.loop)
-            print("release")
             lock.release()
-            print("rum forever")
             self.loop.run_forever()
 
         thread = Thread(target=run_loop, daemon=True)
