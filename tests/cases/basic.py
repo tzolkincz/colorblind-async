@@ -44,3 +44,38 @@ async def nested_functions():
 
 def call_nested_functions():
     return await nested_functions()
+
+
+def test_async_for():
+    async def fn():
+        return True
+
+    async def async_iter():
+        for i in range(2):
+            yield i
+            await asyncio.sleep(0)
+
+    async def async_wrapper():
+        res = []
+        # async for cannot be used outside async context, but we can wrap it in async function and await it
+        async for i in async_iter():
+            res.append(i)
+        return res
+
+    return await async_wrapper()
+
+
+def test_async_with():
+    class AsyncContextManager:
+        async def __aenter__(self):
+            await asyncio.sleep(0)
+
+        async def __aexit__(self, exc_type, exc, tb):
+            await asyncio.sleep(0)
+
+    async def w():
+        async with AsyncContextManager():
+            pass
+        return True
+
+    return await w()
