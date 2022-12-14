@@ -33,7 +33,7 @@ async def my_coro():
 def my_sync_fn():
     await my_coro() #  call `await` in sync function
 
-await coro() # I can even call `await` outside any function
+await my_coro() # I can even call `await` outside any function
 ```
 
 
