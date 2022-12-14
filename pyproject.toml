@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "colorblind-async"
-version = "0.0.1rc0"
+version = "0.0.1"
 authors = [
   { name="tzolkincz", email="vaclav@happy-robots.cz" },
 ]
@@ -16,9 +16,16 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
-dynamic = ["dependencies"]
-[tool.setuptools.dynamic]
-dependencies = {file = ["requirements.txt"]}
+dependencies = [
+  "pytest>=4.2.1",
+  "libcst>=0.3.4",
+  "nest-asyncio>=1.5.0"
+]
+
+[project.optional-dependencies]
+tests = [
+  'pytest'
+]
 
 [project.urls]
 "Homepage" = "https://github.com/tzolkincz/colorblind-async"
